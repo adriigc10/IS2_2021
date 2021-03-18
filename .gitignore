@@ -2,6 +2,7 @@
 .classpath
 .proyect
 .settings/
+.metadata
 
 # Directorios de artefactos geenrados en Maven
 tarjet/
