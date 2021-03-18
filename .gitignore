@@ -1,0 +1,7 @@
+# Archivos de configuracion de eclipse
+.classpath
+.proyect
+.settings/
+
+# Directorios de artefactos geenrados en Maven
+tarjet/
