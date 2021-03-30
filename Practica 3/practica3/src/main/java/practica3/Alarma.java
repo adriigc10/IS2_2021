@@ -12,7 +12,11 @@ public class Alarma {
 		this.hora = hora;
 	}
 	
-	public String id() {
+	public String id () {
 		return id;
+	}
+	
+	public Date hora () {
+		return hora;
 	}
 }

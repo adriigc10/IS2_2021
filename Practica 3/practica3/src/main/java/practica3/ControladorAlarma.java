@@ -7,18 +7,19 @@ import java.util.TreeMap;
 
 public class ControladorAlarma {
 	
-	private ControladorAlarmaState estado;
+	private ControladorAlarmaState state;
 	private final int INTERVALO_SONAR = 10;
 
-	private PriorityQueue<Alarma> alarmasActivas = new PriorityQueue<Alarma>();
+	private PriorityQueue<Alarma> alarmasActivadas = new PriorityQueue<Alarma>();
 	private HashMap<String, Alarma> alarmasDesactivadas = new HashMap<String, Alarma>(); 
 	
+	//TODO: que coño es esto
 	public ControladorAlarma () {
-		this.estado = ControladorAlarmaState.init(this);
+		this.state = ControladorAlarmaState.init(this);
 	}
 	
 	public void setState (ControladorAlarmaState estado) {
-		this.estado = estado;
+		this.state = estado;
 	}
 	
 	public Alarma alarma(String id) {
