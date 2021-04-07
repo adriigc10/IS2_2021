@@ -1,13 +1,12 @@
 package practica3;
 
-import java.sql.Date;
 import java.util.HashMap;
 import java.util.PriorityQueue;
-import java.util.TreeMap;
+
 
 public class ControladorAlarma {
 	
-	private ControladorAlarmaState state;
+	private ControladorAlarmaState state = null;
 	private final int INTERVALO_SONAR = 10;
 
 	private PriorityQueue<Alarma> alarmasActivadas = new PriorityQueue<Alarma>();
@@ -23,47 +22,66 @@ public class ControladorAlarma {
 	}
 	
 	public Alarma alarma(String id) {
-		Alarma alarmaEncontrada = null;
+		Alarma alarmaBuscada = null;
 		
-		alarmaEncontrada = alarmasDesactivadas.get(id);
+		alarmaBuscada = alarmasDesactivadas.get(id);
 		
-		if (alarmaEncontrada == null) {
-			alarmasActivas.
+		if (alarmaBuscada == null) {
+			for (Alarma a: alarmasActivadas) {
+				if (a.id().equals(id)) {
+					alarmaBuscada = a;
+				}
+			}
 		}
 		
-		return alarmaEncontrada;
+		return alarmaBuscada;
 	}
 	
+	// TODO revisar
 	public boolean anhadeAlarma (Alarma al) {
-		alarmas.put(al.id(), al);
+		if (alarma(al.id()) == null) {
+			alarmasActivadas.add(al);
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	public boolean eliminaAlarma (Alarma al) {
-		return false;
+		if (alarmasActivadas.contains(al)) {
+			alarmasActivadas.remove(al);
+			return true;
+		} else if (alarmasDesactivadas.containsKey(al.id())) {
+			alarmasDesactivadas.remove(al.id());
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	public Alarma alarmaMasProxima () {
-		return null;
+		return alarmasActivadas.peek();
 	}
 	
+	
 	public void desactivaAlarma (Alarma al) {
-		
+		al.desactivarAlarma();
 	}
 	
 	public void activaAlarma (Alarma al) {
-		
+		al.activarAlarma();
 	}
 	
-	public Alarma[] alarmasActivas () {
-		return null;
+	public PriorityQueue<Alarma> alarmasActivas () {
+		return alarmasActivadas;
 	}
 	
 	public void activarMelodia () {
-		
+		System.out.println("Me reporto en tu zonaaaaaaaa");
 	}
 	
 	public void desactivarMelodia () {
-		
+		System.out.println("Silencio");
 	}
 	
 }
