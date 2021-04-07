@@ -27,7 +27,6 @@ public abstract class ControladorAlarmaState {
 
 	
 	// Observadores de los estados 
-	
 	public static ControladorAlarmaState getEstadoDesprogramada() {
 		return estadoDesprogramada;
 	}

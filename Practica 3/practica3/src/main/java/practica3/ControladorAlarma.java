@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 public class ControladorAlarma {
 	
 	private ControladorAlarmaState state = null;
-	private final int INTERVALO_SONAR = 10;
+	private final int INTERVALO_SONAR = 10000; //ms
 
 	private PriorityQueue<Alarma> alarmasActivadas = new PriorityQueue<Alarma>();
 	private HashMap<String, Alarma> alarmasDesactivadas = new HashMap<String, Alarma>(); 
@@ -37,7 +37,6 @@ public class ControladorAlarma {
 		return alarmaBuscada;
 	}
 	
-	// TODO revisar
 	public boolean anhadeAlarma (Alarma al) {
 		if (alarma(al.id()) == null) {
 			alarmasActivadas.add(al);
@@ -60,7 +59,7 @@ public class ControladorAlarma {
 	}
 	
 	public Alarma alarmaMasProxima () {
-		return alarmasActivadas.peek();
+		return alarmasActivadas.poll();
 	}
 	
 	
@@ -82,6 +81,10 @@ public class ControladorAlarma {
 	
 	public void desactivarMelodia () {
 		System.out.println("Silencio");
+	}
+	
+	public int intervaloSonar() {
+		return INTERVALO_SONAR;
 	}
 	
 }
