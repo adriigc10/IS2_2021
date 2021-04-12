@@ -1,6 +1,8 @@
 package practica3;
 
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.PriorityQueue;
 
 
@@ -59,16 +61,20 @@ public class ControladorAlarma {
 	}
 	
 	public Alarma alarmaMasProxima () {
-		return alarmasActivadas.poll();
+		return alarmasActivadas.peek();
 	}
 	
 	
 	public void desactivaAlarma (Alarma al) {
-		al.desactivarAlarma();
+		//al.desactivarAlarma();
+		alarmasActivadas.remove(al);
+		alarmasDesactivadas.put(al.id(), al);
 	}
 	
 	public void activaAlarma (Alarma al) {
-		al.activarAlarma();
+		//al.activarAlarma();
+		alarmasDesactivadas.remove(al.id());
+		alarmasActivadas.add(al);
 	}
 	
 	public PriorityQueue<Alarma> alarmasActivas () {
@@ -87,4 +93,32 @@ public class ControladorAlarma {
 		return INTERVALO_SONAR;
 	}
 	
+	public  HashMap<String, Alarma> alarmasDesactivadas() {
+		return alarmasDesactivadas;
+	}
+	
+	// señales
+	
+	public void nuevaAlarma(String id, Date hora) {
+		state.nuevaAlarma(this, id, hora);
+		System.out.println("Alarma creada");
+		System.out.println("Alarmas activas: " + alarmasActivadas.size());
+		System.out.println("Alarmas desactivadas: " + alarmasDesactivadas.size());
+	}
+	
+	public void apagar() {
+		state.apagar(this);
+	}
+	
+	public void alarmaOff(String id) {
+		state.alarmaOff(this, id);
+	}
+	
+	public void alarmaOn(String id) {
+		state.alarmaOn(this, id);
+	}
+	
+	public void borrarAlarma(String id) {
+		state.borrarAlarma(this, id);
+	}	
 }

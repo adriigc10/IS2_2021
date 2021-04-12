@@ -1,6 +1,6 @@
 package practica3;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -24,6 +24,7 @@ public class Programada extends ControladorAlarmaState {
 	public void nuevaAlarma (ControladorAlarma contexto, String id, Date hora) {
 		ControladorAlarmaState estadoProgramada = getEstadoProgramada();
 		contexto.anhadeAlarma(new Alarma(id, hora));
+		System.out.println("Programada: alarma creada");
 		contexto.setState(estadoProgramada);
 		estadoProgramada.entryAction(contexto);
 	}
@@ -39,7 +40,9 @@ public class Programada extends ControladorAlarmaState {
 	
 	public void alarmaOn (ControladorAlarma contexto, String id) {
 		ControladorAlarmaState estadoProgramada = getEstadoProgramada();
-		contexto.alarma(id).activarAlarma();
+		//TODO revision cambios
+		//contexto.alarma(id).activarAlarma();
+		contexto.activaAlarma(contexto.alarma(id));
 		contexto.setState(estadoProgramada);
 		estadoProgramada.entryAction(contexto);
 	}
@@ -47,7 +50,8 @@ public class Programada extends ControladorAlarmaState {
 	
 	public void alarmaOff (ControladorAlarma contexto, String id) {
 		ControladorAlarmaState estadoProgramada = getEstadoProgramada();
-		contexto.alarma(id).desactivarAlarma();
+		//contexto.alarma(id).desactivarAlarma();
+		contexto.desactivaAlarma(contexto.alarma(id));
 		contexto.setState(estadoProgramada);
 		estadoProgramada.entryAction(contexto);
 	}

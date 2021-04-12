@@ -1,6 +1,6 @@
 package practica3;
 
-import java.sql.Date;
+import java.util.Date;
 
 public abstract class ControladorAlarmaState {
 
@@ -21,7 +21,6 @@ public abstract class ControladorAlarmaState {
 	// crear una alarma
 	//TODO: que coño es esto
 	public static ControladorAlarmaState init (ControladorAlarma contexto) {
-		estadoDesprogramada.entryAction(contexto);
 		return estadoDesprogramada;
 	}
 

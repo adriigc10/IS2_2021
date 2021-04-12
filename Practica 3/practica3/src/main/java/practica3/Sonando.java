@@ -10,7 +10,6 @@ public class Sonando extends ControladorAlarmaState {
 
 	public void entryAction (ControladorAlarma contexto) {
 		contexto.activarMelodia();
-		//TODO timer
 		// programar el evento temporizado
 		apagaMelodiaTask = new ApagaMelodiaTask(contexto);
 		timer.schedule(apagaMelodiaTask, contexto.intervaloSonar());
@@ -19,7 +18,7 @@ public class Sonando extends ControladorAlarmaState {
 	
 	public void exitAction (ControladorAlarma contexto) {
 		contexto.desactivarMelodia();
-		//contexto.eliminaAlarma(al);
+		contexto.eliminaAlarma(contexto.alarmaMasProxima());
 	}
 	
 	

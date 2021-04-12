@@ -1,17 +1,17 @@
 package practica3;
 
-import java.sql.Date;
+import java.util.Date;
 
-public class Alarma {
+public class Alarma implements Comparable<Alarma>{
 
 	private String id;
 	private Date hora;
-	private boolean activada;
+	//private boolean activada;
 	
 	public Alarma (String id, Date hora) {
 		this.id = id;
 		this.hora = hora;
-		activada = true;
+		//activada = true;
 	}
 	
 	public String id () {
@@ -22,15 +22,24 @@ public class Alarma {
 		return hora;
 	}
 	
-	public boolean activada () {
-		return activada;
+//	public boolean activada () {
+//		return activada;
+//	}
+	
+//	public void activarAlarma () {
+//		activada = true;
+//	}
+//	
+//	public void desactivarAlarma () {
+//		activada = false;
+//	}
+	
+	@Override
+	public String toString() {
+		return "Alarma id: " + id + ", hora: " + hora;
 	}
 	
-	public void activarAlarma () {
-		activada = true;
-	}
-	
-	public void desactivarAlarma () {
-		activada = false;
+	public int compareTo(Alarma al) {
+		return hora.compareTo(al.hora());
 	}
 }

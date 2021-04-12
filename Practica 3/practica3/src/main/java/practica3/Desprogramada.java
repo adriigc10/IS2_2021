@@ -1,6 +1,6 @@
 package practica3;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Desprogramada extends ControladorAlarmaState {
 	
@@ -21,7 +21,9 @@ public class Desprogramada extends ControladorAlarmaState {
 	
 	public void alarmaOn(ControladorAlarma contexto, String id) {
 		ControladorAlarmaState estadoProgramada = getEstadoProgramada();
-		contexto.alarma(id).activarAlarma();
+		//contexto.alarma(id).activarAlarma();
+		//TODO: revision cambios
+		contexto.activaAlarma(contexto.alarma(id));
 		contexto.setState(estadoProgramada);
 		estadoProgramada.entryAction(contexto);
 	};
