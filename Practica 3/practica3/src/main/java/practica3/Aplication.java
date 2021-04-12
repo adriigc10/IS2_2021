@@ -64,13 +64,13 @@ public class Aplication {
 
 		// alarmas activadas 
 		txtAlarmasActivas = new JTextPane();
-		txtAlarmasActivas.setBounds(294, 49, 116, 85);
+		txtAlarmasActivas.setBounds(294, 49, 143, 85);
 		frame.getContentPane().add(txtAlarmasActivas);
 		txtAlarmasActivas.setEditable(false);
 
 		// alarmas desactivadas
 		JTextPane txtAlarmasDesactivadas = new JTextPane();
-		txtAlarmasDesactivadas.setBounds(294, 172, 116, 85);
+		txtAlarmasDesactivadas.setBounds(294, 172, 143, 85);
 		frame.getContentPane().add(txtAlarmasDesactivadas);
 		txtAlarmasDesactivadas.setEditable(false);
 
@@ -140,7 +140,7 @@ public class Aplication {
 		
 		// alarma para interactuar
 		txtIdAlarmaInteractuar = new JTextField();
-		txtIdAlarmaInteractuar.setBounds(363, 278, 133, 20);
+		txtIdAlarmaInteractuar.setBounds(294, 278, 143, 20);
 		frame.getContentPane().add(txtIdAlarmaInteractuar);
 		txtIdAlarmaInteractuar.setColumns(10);
 		
@@ -154,7 +154,7 @@ public class Aplication {
 				mostrarAlarmasDesactivadas();
 			}
 		});
-		btnAlarmOn.setBounds(339, 315, 61, 20);
+		btnAlarmOn.setBounds(294, 315, 61, 20);
 		frame.getContentPane().add(btnAlarmOn);
 		
 		// alarma off
@@ -169,13 +169,13 @@ public class Aplication {
 				System.out.println("Alarmas desactivadas: " + despertador.alarmasDesactivadas().size());
 			}
 		});
-		btnAlarmaOff.setBounds(412, 315, 61, 20);
+		btnAlarmaOff.setBounds(376, 315, 61, 20);
 		frame.getContentPane().add(btnAlarmaOff);
 		
 		
 		
 		JLabel lblNewLabel = new JLabel("Id alarma ");
-		lblNewLabel.setBounds(294, 281, 85, 14);
+		lblNewLabel.setBounds(210, 281, 74, 14);
 		frame.getContentPane().add(lblNewLabel);
 
 
