@@ -94,7 +94,7 @@ public class Aplication {
 
 		// id alarma
 		JLabel lblIdAlarma = new JLabel("Id Alarma nueva");
-		lblIdAlarma.setBounds(10, 52, 85, 14);
+		lblIdAlarma.setBounds(10, 52, 104, 14);
 		frame.getContentPane().add(lblIdAlarma);
 
 		// hora alarma
