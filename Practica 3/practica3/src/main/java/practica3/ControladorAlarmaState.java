@@ -19,7 +19,6 @@ public abstract class ControladorAlarmaState {
 	public void doAction(ControladorAlarma contexto) {}
 
 	// crear una alarma
-	//TODO: que coño es esto
 	public static ControladorAlarmaState init (ControladorAlarma contexto) {
 		return estadoDesprogramada;
 	}

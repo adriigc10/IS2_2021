@@ -18,6 +18,8 @@ public class Sonando extends ControladorAlarmaState {
 	
 	public void exitAction (ControladorAlarma contexto) {
 		contexto.desactivarMelodia();
+		Alarma al = contexto.alarmaMasProxima();
+		System.out.println("Alarma id: " + al.id() + " desactivada");
 		contexto.eliminaAlarma(contexto.alarmaMasProxima());
 	}
 	

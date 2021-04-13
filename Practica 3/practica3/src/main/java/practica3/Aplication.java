@@ -11,9 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Calendar;
-import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
 public class Aplication {
@@ -24,6 +22,7 @@ public class Aplication {
 	private JSpinner spnHoraAlarma;
 	private Alarma al;
 	private JTextPane txtAlarmasActivas;
+	private JTextPane txtAlarmasDesactivadas;
 	private JTextField txtIdAlarmaInteractuar;
 
 	/**
@@ -64,13 +63,13 @@ public class Aplication {
 
 		// alarmas activadas 
 		txtAlarmasActivas = new JTextPane();
-		txtAlarmasActivas.setBounds(294, 49, 116, 85);
+		txtAlarmasActivas.setBounds(294, 49, 143, 85);
 		frame.getContentPane().add(txtAlarmasActivas);
 		txtAlarmasActivas.setEditable(false);
 
 		// alarmas desactivadas
-		JTextPane txtAlarmasDesactivadas = new JTextPane();
-		txtAlarmasDesactivadas.setBounds(294, 172, 116, 85);
+		txtAlarmasDesactivadas = new JTextPane();
+		txtAlarmasDesactivadas.setBounds(294, 172, 143, 85);
 		frame.getContentPane().add(txtAlarmasDesactivadas);
 		txtAlarmasDesactivadas.setEditable(false);
 
@@ -140,7 +139,7 @@ public class Aplication {
 		
 		// alarma para interactuar
 		txtIdAlarmaInteractuar = new JTextField();
-		txtIdAlarmaInteractuar.setBounds(363, 278, 133, 20);
+		txtIdAlarmaInteractuar.setBounds(294, 278, 143, 20);
 		frame.getContentPane().add(txtIdAlarmaInteractuar);
 		txtIdAlarmaInteractuar.setColumns(10);
 		
@@ -150,11 +149,16 @@ public class Aplication {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				despertador.alarmaOn(txtIdAlarmaInteractuar.getText());
-				mostrarAlarmasActivas();
+				
+				mostrarAlarmasActivas();		
 				mostrarAlarmasDesactivadas();
+				
+				txtIdAlarmaInteractuar.setText(null);
+				System.out.println("Alarmas activas: " + despertador.alarmasActivas().size());
+				System.out.println("Alarmas desactivadas: " + despertador.alarmasDesactivadas().size());
 			}
 		});
-		btnAlarmOn.setBounds(339, 315, 61, 20);
+		btnAlarmOn.setBounds(294, 315, 61, 20);
 		frame.getContentPane().add(btnAlarmOn);
 		
 		// alarma off
@@ -163,23 +167,21 @@ public class Aplication {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				despertador.alarmaOff(txtIdAlarmaInteractuar.getText());
+				
 				mostrarAlarmasActivas();
 				mostrarAlarmasDesactivadas();
+				
+				txtIdAlarmaInteractuar.setText(null);
 				System.out.println("Alarmas activas: " + despertador.alarmasActivas().size());
 				System.out.println("Alarmas desactivadas: " + despertador.alarmasDesactivadas().size());
 			}
 		});
-		btnAlarmaOff.setBounds(412, 315, 61, 20);
+		btnAlarmaOff.setBounds(376, 315, 61, 20);
 		frame.getContentPane().add(btnAlarmaOff);
 		
-		
-		
 		JLabel lblNewLabel = new JLabel("Id alarma ");
-		lblNewLabel.setBounds(294, 281, 85, 14);
+		lblNewLabel.setBounds(210, 281, 74, 14);
 		frame.getContentPane().add(lblNewLabel);
-
-
-
 
 	}
 
@@ -204,7 +206,7 @@ public class Aplication {
 			alDes = alDes + a.id() + "\n";
 		}
 		
-		txtAlarmasActivas.setText(alDes);
+		txtAlarmasDesactivadas.setText(alDes);
 
 	}
 }

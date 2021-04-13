@@ -7,15 +7,16 @@ import java.util.TimerTask;
 public class Programada extends ControladorAlarmaState {
 	
 	protected Timer timer = new Timer();
-	protected LlegoLaHoraTask llegoLaHora;
+	protected LlegoLaHoraTask llegoLaHora = new LlegoLaHoraTask(null);
 	
 	public void entryAction (ControladorAlarma contexto) {
 		if (contexto.alarmasActivas().size() == 0) {
 			contexto.setState(getEstadoDesprogramada());
 		} else {
-			//TODO timer
+			//cancela el evento temporizado
+			llegoLaHora.cancel();
+			
 			// programar el evento temporizado
-			// activar melodia de la alarma mas proxima
 			llegoLaHora = new LlegoLaHoraTask(contexto);
 			timer.schedule(llegoLaHora, contexto.alarmaMasProxima().hora());
 		}
@@ -40,8 +41,6 @@ public class Programada extends ControladorAlarmaState {
 	
 	public void alarmaOn (ControladorAlarma contexto, String id) {
 		ControladorAlarmaState estadoProgramada = getEstadoProgramada();
-		//TODO revision cambios
-		//contexto.alarma(id).activarAlarma();
 		contexto.activaAlarma(contexto.alarma(id));
 		contexto.setState(estadoProgramada);
 		estadoProgramada.entryAction(contexto);
@@ -50,7 +49,6 @@ public class Programada extends ControladorAlarmaState {
 	
 	public void alarmaOff (ControladorAlarma contexto, String id) {
 		ControladorAlarmaState estadoProgramada = getEstadoProgramada();
-		//contexto.alarma(id).desactivarAlarma();
 		contexto.desactivaAlarma(contexto.alarma(id));
 		contexto.setState(estadoProgramada);
 		estadoProgramada.entryAction(contexto);

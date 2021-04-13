@@ -14,7 +14,6 @@ public class ControladorAlarma {
 	private PriorityQueue<Alarma> alarmasActivadas = new PriorityQueue<Alarma>();
 	private HashMap<String, Alarma> alarmasDesactivadas = new HashMap<String, Alarma>(); 
 	
-	//TODO: que coño es esto
 	public ControladorAlarma () {
 		this.state = ControladorAlarmaState.init(this);
 	}
@@ -52,9 +51,6 @@ public class ControladorAlarma {
 		if (alarmasActivadas.contains(al)) {
 			alarmasActivadas.remove(al);
 			return true;
-		} else if (alarmasDesactivadas.containsKey(al.id())) {
-			alarmasDesactivadas.remove(al.id());
-			return true;
 		} else {
 			return false;
 		}
@@ -66,13 +62,11 @@ public class ControladorAlarma {
 	
 	
 	public void desactivaAlarma (Alarma al) {
-		//al.desactivarAlarma();
 		alarmasActivadas.remove(al);
 		alarmasDesactivadas.put(al.id(), al);
 	}
 	
 	public void activaAlarma (Alarma al) {
-		//al.activarAlarma();
 		alarmasDesactivadas.remove(al.id());
 		alarmasActivadas.add(al);
 	}
@@ -82,11 +76,11 @@ public class ControladorAlarma {
 	}
 	
 	public void activarMelodia () {
-		System.out.println("Me reporto en tu zonaaaaaaaa");
+		System.out.println("Sonando alarma");
 	}
 	
 	public void desactivarMelodia () {
-		System.out.println("Silencio");
+		System.out.println("Alarma desactivada");
 	}
 	
 	public int intervaloSonar() {
@@ -102,8 +96,6 @@ public class ControladorAlarma {
 	public void nuevaAlarma(String id, Date hora) {
 		state.nuevaAlarma(this, id, hora);
 		System.out.println("Alarma creada");
-		System.out.println("Alarmas activas: " + alarmasActivadas.size());
-		System.out.println("Alarmas desactivadas: " + alarmasDesactivadas.size());
 	}
 	
 	public void apagar() {
