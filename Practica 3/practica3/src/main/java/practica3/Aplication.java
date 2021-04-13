@@ -93,7 +93,7 @@ public class Aplication {
 		// etiquetas
 
 		// id alarma
-		JLabel lblIdAlarma = new JLabel("Id Alarma");
+		JLabel lblIdAlarma = new JLabel("Id Alarma nueva");
 		lblIdAlarma.setBounds(10, 52, 85, 14);
 		frame.getContentPane().add(lblIdAlarma);
 
@@ -184,8 +184,8 @@ public class Aplication {
 		btnAlarmaOff.setBounds(376, 315, 61, 20);
 		frame.getContentPane().add(btnAlarmaOff);
 		
-		JLabel lblNewLabel = new JLabel("Id alarma ");
-		lblNewLabel.setBounds(210, 281, 74, 14);
+		JLabel lblNewLabel = new JLabel("Id alarma on/off");
+		lblNewLabel.setBounds(190, 281, 94, 14);
 		frame.getContentPane().add(lblNewLabel);
 
 	}
