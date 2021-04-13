@@ -3,6 +3,11 @@ package practica3;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * 
+ * @author Borja Cuevas y Adrian Garcia
+ *
+ */
 public class Sonando extends ControladorAlarmaState {
 	
 	protected ApagaMelodiaTask apagaMelodiaTask;
@@ -30,24 +35,35 @@ public class Sonando extends ControladorAlarmaState {
 		
 		ControladorAlarmaState estadoSonando = getEstadoSonando();
 		estadoSonando.exitAction(contexto);
-		ControladorAlarmaState estadoProgramada = getEstadoProgramada();
+		ControladorAlarmaState estadoProgramada = getEstadoProgramado();
 		contexto.setState(estadoProgramada);
 		estadoProgramada.entryAction(contexto);
 		
 	}
 	
 	
-	
+	/**
+	 * 
+	 * @author Borja Cuevas y Adrian Garcia
+	 *
+	 */
 	public class ApagaMelodiaTask extends TimerTask {
 		
 		private ControladorAlarma contexto;
 		ControladorAlarmaState estadoSonando = getEstadoSonando();
-		ControladorAlarmaState estadoProgramada = getEstadoDesprogramada();
+		ControladorAlarmaState estadoProgramada = getEstadoDesprogramado();
 		
+		/**
+		 * Constructor.
+		 * @param c estado actual del controlador.
+		 */
 		public ApagaMelodiaTask (ControladorAlarma c) {
 			contexto = c;
 		}
 		
+		/**
+		 * Metodo run de la clase.
+		 */
 		public void run () {
 			estadoSonando.exitAction(contexto);
 			contexto.setState(estadoProgramada);

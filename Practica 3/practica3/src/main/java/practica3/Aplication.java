@@ -14,6 +14,11 @@ import java.util.Date;
 import java.util.Calendar;
 import javax.swing.JTextPane;
 
+/**
+ * 
+ * @author Borja Cuevas y Adrian Garcia
+ *
+ */
 public class Aplication {
 
 	private JFrame frame;
@@ -185,6 +190,9 @@ public class Aplication {
 
 	}
 
+	/**
+	 * Muestra las alarmas activas del controlador.
+	 */
 	private void mostrarAlarmasActivas() {
 		
 		String alAct = "";
@@ -198,6 +206,9 @@ public class Aplication {
 
 	}
 
+	/**
+	 * Muestra las alarmas desactivadas del controlador. 
+	 */
 	private void mostrarAlarmasDesactivadas() {
 		
 		String alDes = "";
