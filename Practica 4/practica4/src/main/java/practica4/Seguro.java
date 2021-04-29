@@ -1,10 +1,10 @@
 package practica4;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Seguro {
 	//Atributos privados
-	private Date fechaUltimoSiniestro;
+	private LocalDate fechaUltimoSiniestro;
 	private int potenciaCV;
 	private Cliente tomadorSeguro;
 	private Cobertura cobertura;
@@ -21,8 +21,66 @@ public class Seguro {
 	 * @return precio del seguro
 	 */
 	public double precio() {
-		//TODO
-		return 0.0;
+		double precio = 0;
+		double precioBase = 0;
+		double porcentajeSubida = 0;
+		double subidaSiniestro = 0;
+		double descuento = 0;
+		
+		
+		//Nivel de cobertura contratado
+		if(cobertura==Cobertura.TODORIESGO) {
+			precioBase = 1000;
+			precio += precioBase;
+		}
+		else if (cobertura == Cobertura.TERCEROS) {
+			precioBase = 400;
+			precio += precioBase;
+		}
+		else {
+			precioBase = 600;
+			precio += precioBase;
+		}
+			
+		
+		System.out.println("Precio cobertura: " + precioBase);
+
+		//Potencia coche
+		if(potenciaCV >= 90 && potenciaCV <= 110) {
+			porcentajeSubida = precio * 0.05;
+			precio += porcentajeSubida;
+		}
+		else if(potenciaCV > 110) {
+			porcentajeSubida = precio * 0.20;
+			precio += porcentajeSubida;
+		}
+		
+		System.out.println("Precio potencia: " + porcentajeSubida);
+		
+		//Nivel de siniestralidad
+		if(fechaUltimoSiniestro.isAfter(LocalDate.now().minusDays(365))) {
+			subidaSiniestro = 200;
+			precio += subidaSiniestro;
+		}
+		else if (fechaUltimoSiniestro.isBefore(LocalDate.now().minusYears(1)) && 
+				fechaUltimoSiniestro.isAfter(LocalDate.now().minusYears(3))) {
+			subidaSiniestro = 50;
+			precio += subidaSiniestro;
+		}
+		
+		System.out.println("Precio siniestro: " + subidaSiniestro);
+
+		//Grado de minusvalia del tomador del seguro
+		if(tomadorSeguro.minusvalia()) {
+			descuento = precio * 0.25;
+			precio -= descuento;
+		}
+		
+		System.out.println("Precio minusvalia: " + descuento);
+		
+		System.out.println("Precio total: " + precio);
+
+		return precio;
 	}
 	
 	//Getters
@@ -30,7 +88,7 @@ public class Seguro {
 	 * Metodo que retorna la fecha del ultimo siniestro.
 	 * @return fechaUltimoSiniestro
 	 */
-	public Date fechaUltimoSiniestro() {
+	public LocalDate fechaUltimoSiniestro() {
 		return fechaUltimoSiniestro;
 	}
 	
@@ -56,5 +114,14 @@ public class Seguro {
 	 */
 	public Cobertura cobertura() {
 		return cobertura;
+	}
+	
+	//Setters
+	/**
+	 * Metodo que establece la fecha del ultimo siniestro.
+	 * @param fechaSiniestro
+	 */
+	public void setFechaUltimoSiniestro(LocalDate fechaSiniestro) {
+		fechaUltimoSiniestro = fechaSiniestro;
 	}
 }
