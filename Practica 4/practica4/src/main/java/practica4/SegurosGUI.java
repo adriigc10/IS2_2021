@@ -112,6 +112,7 @@ public class SegurosGUI extends JFrame {
 		comboCobertura = new JComboBox();
 		comboCobertura.setModel(new DefaultComboBoxModel(new String[] {"TODO_RIESGO", "TERCEROS_LUNAS", "TERCEROS"}));
 		comboCobertura.setBounds(124, 44, 188, 23);
+		comboCobertura.setName("comboCobertura");
 		contentPane.add(comboCobertura);
 		
 		JLabel lblCobertura = new JLabel("Cobertura");
