@@ -1,4 +1,4 @@
-package practica4;
+package es.unican.is2.practica4;
 
 /**
  * Clase del objeto cliente.
@@ -44,5 +44,13 @@ public class Cliente {
 	 */
 	public boolean minusvalia() {
 		return minusvalia;
+	}
+	
+	public void setMinusvalido () {
+		minusvalia = true;
+	}
+	
+	public void setNoMinusvalido () {
+		minusvalia = false;
 	}
 }
