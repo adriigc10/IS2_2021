@@ -17,28 +17,10 @@ public class Seguro {
 
 	//Constructor
 	public Seguro(int potencia, Cliente cliente, Cobertura cobertura) {
-		this.potenciaCV = potencia;
-		this.tomadorSeguro = cliente;
-		this.cobertura = cobertura;
-	}
-
-	public double precio() throws DatoIncorrectoException {
-
-		double precio = 0.0;
 
 		// gestion errores
 
-		if (fechaUltimoSiniestro == null) { 
-			System.out.println("Fecha nula");
-			throw new DatoIncorrectoException();
-		}
-
-		if (fechaUltimoSiniestro.isAfter(LocalDate.now())) { 
-			System.out.println("Fecha posterior a la actual");
-			throw new DatoIncorrectoException();
-		}
-
-		if (potenciaCV <= 0) {
+		if (potencia <= 0) {
 			System.out.println("Potencia negativa");
 			throw new DatoIncorrectoException();
 		}
@@ -48,6 +30,19 @@ public class Seguro {
 			throw new DatoIncorrectoException();
 		}
 
+		if (cliente == null) {
+			System.out.println("Cliente nulo");
+			throw new DatoIncorrectoException();
+		}
+
+		this.potenciaCV = potencia;
+		this.tomadorSeguro = cliente;
+		this.cobertura = cobertura;
+	}
+
+	public double precio() throws DatoIncorrectoException {
+
+		double precio = 0.0;
 
 		// cobertura seguro
 
@@ -77,10 +72,12 @@ public class Seguro {
 
 		// nivel de siniestralidad
 
-		if (fechaUltimoSiniestro.isAfter(LocalDate.now().minusDays(366)) ) {
-			precio += 200;
-		} else if (fechaUltimoSiniestro.isAfter(LocalDate.now().minusDays(1096))) {
-			precio += 50;
+		if (fechaUltimoSiniestro != null) {
+			if (fechaUltimoSiniestro.isAfter(LocalDate.now().minusDays(366)) ) {
+				precio += 200;
+			} else if (fechaUltimoSiniestro.isAfter(LocalDate.now().minusDays(1095))) {
+				precio += 50;
+			}
 		}
 
 		// minusvalia
@@ -89,13 +86,11 @@ public class Seguro {
 			precio = precio * DESCUENTO_MINUSVALIDOS;
 		}
 
-		//TODO: eliminar
-		//System.out.println("Precio calculado: " + precio);
-
 		return precio;
 	}
 
 	//Getters
+	//TODO: quitamos este metodo?? no se utiliza
 	/**
 	 * Metodo que retorna la fecha del ultimo siniestro.
 	 * @return fechaUltimoSiniestro
@@ -134,14 +129,28 @@ public class Seguro {
 	 * @param fechaSiniestro
 	 */
 	public void setFechaUltimoSiniestro(LocalDate fechaSiniestro) {
+		if (fechaSiniestro != null) {
+			if (fechaSiniestro.isAfter(LocalDate.now())) { 
+				System.out.println("Fecha posterior a la actual");
+				throw new DatoIncorrectoException();
+			}
+		}
 		fechaUltimoSiniestro = fechaSiniestro;
 	}
 
 	public void setPotencia (int potencia) throws DatoIncorrectoException {
+		if (potencia <= 0) {
+			System.out.println("Potencia negativa");
+			throw new DatoIncorrectoException();
+		}
 		potenciaCV = potencia;;
 	}
 
 	public void setCobertura (Cobertura cob) throws DatoIncorrectoException {
-		cobertura = cob;;
+		if (cob == null) {
+			System.out.println("Cobertura incorrecta");
+			throw new DatoIncorrectoException();
+		}
+		cobertura = cob;
 	}
 }

@@ -52,11 +52,11 @@ public class SegurosGUITest {
 		demo.textBox("txtPrecio").requireText("900.0");
 
 		// Sleep para visualizar como se realiza el test
-//		try {
-//			Thread.sleep(2000);
-//		} catch (InterruptedException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 
 		// SEGUNDO CASO
 
@@ -75,14 +75,14 @@ public class SegurosGUITest {
 		demo.button("btnCalcular").click();
 
 		// Comprobamos la salida
-		demo.textBox("txtPrecio").requireText("622.5");
+		demo.textBox("txtPrecio").requireText("510.0");
 
 		// Sleep para visualizar como se realiza el test
-//		try {
-//			Thread.sleep(2000);
-//		} catch (InterruptedException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 
 		// TERCER CASO
 
@@ -105,7 +105,7 @@ public class SegurosGUITest {
 
 		// Sleep para visualizar como se realiza el test
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(200);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
