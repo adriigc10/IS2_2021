@@ -26,10 +26,9 @@
 		
 		<dependency>
 			<groupId>es.unican.is2</groupId>
-			<artifactId>practica4</artifactId>
+			<artifactId>pr4ListaOrdenada</artifactId>
 			<version>1</version>
 		</dependency>
-		
 	</dependencies>
 
 </project>
