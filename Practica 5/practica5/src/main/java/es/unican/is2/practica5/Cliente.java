@@ -3,6 +3,9 @@ package es.unican.is2.practica5;
 import java.util.LinkedList;
 import java.util.List;
 
+// WMC = 8
+// CCOGtotal = 10
+
 public class Cliente {
 	
 	public String nombre;
@@ -13,9 +16,9 @@ public class Cliente {
 	public String dni;
 	
     private List<Cuenta> Cuentas = new LinkedList<Cuenta>();
-
+    
  	public Cliente(String titular, String calle, String zip, String localidad, 
- 			String telefono, String dni) {  
+ 			String telefono, String dni) { // CC += 1
 		this.nombre = titular;
 		this.calle = calle;
 		this.zip = zip;
@@ -24,19 +27,19 @@ public class Cliente {
 		this.dni = dni;
 	}
 	
-	public void cambiaDireccion(String calle, String zip, String localidad) {
+	public void cambiaDireccion(String calle, String zip, String localidad) { // CC += 1
 		this.calle = calle;
 		this.zip = zip;
 		this.localidad = localidad;
 	}
 	
-	public double getSaldoTotal() {
+	public double getSaldoTotal() { // CC += 1
 		double total = 0.0;
-		for (Cuenta c: Cuentas) {  
-			if (c instanceof CuentaAhorro) {
+		for (Cuenta c: Cuentas) {  // CC += 1, CCOG += 1
+			if (c instanceof CuentaAhorro) { // CC += 1, CCOG += 2
 				total += ((CuentaAhorro) c).getSaldo();
-			} else if (c instanceof CuentaValores)  {
-				for (Valor v: ((CuentaValores) c).getValores()) {
+			} else if (c instanceof CuentaValores)  { // CC += 1, CCOG += 3
+				for (Valor v: ((CuentaValores) c).getValores()) { // CC += 1, CCOG += 4
 					total += v.getCotizacionActual()*v.getNumValores();
 				}
 			}
@@ -44,7 +47,7 @@ public class Cliente {
 		return total;
 	}
 	
-	public void anhadeCuenta(Cuenta c) {
+	public void anhadeCuenta(Cuenta c) { // CC += 1
 		Cuentas.add(c);
 	}
 	
