@@ -2,6 +2,11 @@ package es.unican.is2.practica4;
 
 import java.time.LocalDate;
 
+/**
+ * Clase Seguro.
+ * @author Borja Cuevas y Adrian Garcia.
+ *
+ */
 public class Seguro {
 	//Atributos privados
 	private LocalDate fechaUltimoSiniestro;
@@ -15,7 +20,12 @@ public class Seguro {
 	private static final double INCREMENTO_ALTO = 1.2;
 	private static final double DESCUENTO_MINUSVALIDOS = 0.75;
 
-	//Constructor
+	/**
+	 * constructor de la clase.
+	 * @param potencia potencia del coche.
+	 * @param cliente tomador del seguro.
+	 * @param cobertura cobertura del seguro.
+	 */
 	public Seguro(int potencia, Cliente cliente, Cobertura cobertura) {
 
 		// gestion errores
@@ -40,6 +50,12 @@ public class Seguro {
 		this.cobertura = cobertura;
 	}
 
+
+	/**
+	 * calcula y retorna el precio del seguro.
+	 * @return precio precio del seguro.
+	 * @throws DatoIncorrectoException en caso de que algun dato introducido sea incorrecto.
+	 */
 	public double precio() throws DatoIncorrectoException {
 
 		double precio = 0.0;
@@ -90,34 +106,26 @@ public class Seguro {
 	}
 
 	//Getters
-	//TODO: quitamos este metodo?? no se utiliza
+	
 	/**
-	 * Metodo que retorna la fecha del ultimo siniestro.
-	 * @return fechaUltimoSiniestro
-	 */
-	public LocalDate fechaUltimoSiniestro() {
-		return fechaUltimoSiniestro;
-	}
-
-	/**
-	 * Metodo que retorna la potencia del vehiculo.
-	 * @return potenciaCV
+	 * Retorna la potencia del vehiculo.
+	 * @return potenciaCV potencia del vehiculo.
 	 */
 	public int potencia() {
 		return potenciaCV;
 	}
 
 	/**
-	 * Metodo que retorna el cliente a cargo del seguro.
-	 * @return tomadorSeguro
+	 * Retorna el cliente a cargo del seguro.
+	 * @return tomadorSeguro tomador del seguro.
 	 */
 	public Cliente tomadorSeguro() {
 		return tomadorSeguro;
 	}
 
 	/**
-	 * Metodo que devuleve el tipo de cobertura del seguro.
-	 * @return cobertura
+	 * Retorna el tipo de cobertura del seguro.
+	 * @return cobertura cobertura del seguro.
 	 */
 	public Cobertura cobertura() {
 		return cobertura;
@@ -125,8 +133,8 @@ public class Seguro {
 
 	//Setters
 	/**
-	 * Metodo que establece la fecha del ultimo siniestro.
-	 * @param fechaSiniestro
+	 * Rstablece la fecha del ultimo siniestro.
+	 * @param fechaSiniestro fecha del ultimo siniestro.
 	 */
 	public void setFechaUltimoSiniestro(LocalDate fechaSiniestro) {
 		if (fechaSiniestro != null) {
@@ -136,21 +144,5 @@ public class Seguro {
 			}
 		}
 		fechaUltimoSiniestro = fechaSiniestro;
-	}
-
-	public void setPotencia (int potencia) throws DatoIncorrectoException {
-		if (potencia <= 0) {
-			System.out.println("Potencia negativa");
-			throw new DatoIncorrectoException();
-		}
-		potenciaCV = potencia;;
-	}
-
-	public void setCobertura (Cobertura cob) throws DatoIncorrectoException {
-		if (cob == null) {
-			System.out.println("Cobertura incorrecta");
-			throw new DatoIncorrectoException();
-		}
-		cobertura = cob;
 	}
 }
