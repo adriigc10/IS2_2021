@@ -1,10 +1,12 @@
 package es.unican.is2.practica5;
 
+// WMC = 1
+//CCOGtotal = 0
 public abstract class Tarjeta {
 	protected String mNumero, mTitular;		
 	protected CuentaAhorro mCuentaAsociada;
 
-	public Tarjeta(String numero, String titular, CuentaAhorro c) {
+	public Tarjeta(String numero, String titular, CuentaAhorro c) { // CC += 1
 		mNumero = numero;
 		mTitular = titular;
 		mCuentaAsociada = c;
