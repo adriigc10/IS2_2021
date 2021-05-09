@@ -35,6 +35,7 @@ public class ListaOrdenadaTest {
 
 		// casos validos
 
+		// obtener de lista con un elemento
 		listaPrueba.add(1);
 		try {
 			assertTrue(listaPrueba.get(0) == 1);
@@ -43,6 +44,7 @@ public class ListaOrdenadaTest {
 			fail("No deberia haberse lanzado la excepcion");
 		}
 
+		// obtener valor intermedio de lista con varios elementos
 		listaPrueba.add(2);
 		listaPrueba.add(4);
 		listaPrueba.add(3);
@@ -53,6 +55,7 @@ public class ListaOrdenadaTest {
 			fail("No deberia haberse lanzado la excepcion");
 		}
 
+		// obtener valor limite de lista con varios elementos
 		try {
 			assertTrue(listaPrueba.get(listaPrueba.size() - 1) == 4);
 		} catch (Exception e) {
@@ -118,6 +121,7 @@ public class ListaOrdenadaTest {
 
 		// casos validos
 
+		// anhadir a lista vacia
 		try {
 			listaPrueba.add(1);
 			assertTrue(listaPrueba.get(0) == 1);
@@ -126,6 +130,7 @@ public class ListaOrdenadaTest {
 			fail("No deberia haberse lanzado la excepcion");
 		}
 
+		// anhadir a lista con un elemento
 		try {
 			listaPrueba.add(1);
 			assertTrue(listaPrueba.get(1) == 1);
@@ -134,6 +139,7 @@ public class ListaOrdenadaTest {
 			fail("No deberia haberse lanzado la excepcion");
 		}
 
+		// anhadir a lista con varios elementos
 		listaPrueba = new ListaOrdenada<Integer>();
 		listaPrueba.add(2);
 		listaPrueba.add(3);
@@ -155,6 +161,7 @@ public class ListaOrdenadaTest {
 
 		// casos validos
 
+		// eliminar de lista con un elemento
 		listaPrueba.add(1);
 		try {
 			listaPrueba.remove(0);
@@ -163,6 +170,7 @@ public class ListaOrdenadaTest {
 			fail("No deberia haberse lanzado la excepcion");
 		}
 
+		// eliminar valor intermedio de lista con varios elementos
 		listaPrueba.add(1);
 		listaPrueba.add(2);
 		listaPrueba.add(3);
@@ -175,6 +183,7 @@ public class ListaOrdenadaTest {
 			fail("No deberia haberse lanzado la excepcion");
 		}
 		
+		// eliminar valor limite de lista con varios elementos
 		listaPrueba.add(3);
 		try {			
 			listaPrueba.remove(listaPrueba.size() - 1);
@@ -247,12 +256,14 @@ public class ListaOrdenadaTest {
 
 		// casos validos
 
+		// tamanho de lista vacia
 		try {
 			assertTrue(listaPrueba.size() == 0);
 		} catch (Exception e) {
 			fail("No deberia haberse lanzado la excepcion");
 		}
 
+		// tamanho de lista con un elemento
 		listaPrueba.add(1);
 		try {
 			assertTrue(listaPrueba.size() == 1);
@@ -260,6 +271,7 @@ public class ListaOrdenadaTest {
 			fail("No deberia haberse lanzado la excepcion");
 		}
 
+		// tamanho de lista con varios elementos
 		listaPrueba.add(3);
 		listaPrueba.add(5);
 		listaPrueba.add(7);
@@ -277,6 +289,7 @@ public class ListaOrdenadaTest {
 
 		// casos validos
 
+		// vaciar lista vacia
 		try {
 			listaPrueba.clear();
 			assertTrue(listaPrueba.size() == 0);
@@ -284,6 +297,7 @@ public class ListaOrdenadaTest {
 			fail("No deberia haberse lanzado la excepcion");
 		}
 
+		// vaciar lista con un elemento
 		listaPrueba.add(1);
 		try {
 			listaPrueba.clear();
@@ -292,6 +306,7 @@ public class ListaOrdenadaTest {
 			fail("No deberia haberse lanzado la excepcion");
 		}
 
+		// vaciar lista con varios elementos
 		listaPrueba.add(1);
 		listaPrueba.add(2);
 		listaPrueba.add(3);

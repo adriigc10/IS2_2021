@@ -204,34 +204,11 @@ public class SeguroTest {
 		} catch (DatoIncorrectoException e) {
 			// funcionamiento correcto
 		}
-
-		// potencia cero
-		try {
-			seguro = new Seguro(0, clienteNoMinusvalido, Cobertura.TERCEROSLUNAS);
-			seguro.setFechaUltimoSiniestro(LocalDate.now());
-			fail("Deberia lanzarse excepcion por potencia <= 0");
-		} catch (DatoIncorrectoException e) {
-			// funcionamiento correcto
-		}
-
-		// potencia negativa
-		try {
-			seguro = new Seguro(-5, clienteMinusvalido, Cobertura.TERCEROSLUNAS);
-			seguro.setFechaUltimoSiniestro(LocalDate.now());
-			fail("Deberia lanzarse excepcion por potencia <= 0");
-		} catch (DatoIncorrectoException e) {
-			// funcionamiento correcto
-		}
-
-
-		// cobertura nula
-		try {
-			seguro = new Seguro(90, clienteMinusvalido, null);
-			seguro.setFechaUltimoSiniestro(LocalDate.now().minusDays(1096));
-			fail("No se ha lanzado la excepcion por cobertura nula");
-		} catch (DatoIncorrectoException e) {
-			// funcionamiento correcto
-		}
+		
+		// los demas casos no validos estan ya comprobados con las 
+		// pruebas del metodo constructor
+		// potencia nunca puede ser menor o igual que 0 y ya se ha comprobado en el constructor
+		// cobertura nunca puede ser nula y ya se ha comprobado en el constructor
 	}
 
 }
