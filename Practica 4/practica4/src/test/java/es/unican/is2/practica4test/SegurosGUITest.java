@@ -8,7 +8,11 @@ import org.junit.Test;
 
 import es.unican.is2.practica4.SegurosGUI;
 
-
+/**
+ * Metodo de prueba de la clase SegurosGUI.
+ * @author Borja Cuevas y Adrian Garcia.
+ *
+ */
 public class SegurosGUITest {
 
 	private FrameFixture demo;

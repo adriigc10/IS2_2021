@@ -1,3 +1,4 @@
+
 package es.unican.is2.containers;
 import java.util.ArrayList;
 
@@ -7,6 +8,7 @@ import java.util.ArrayList;
  *
  * @author IS2 2020/2021
  */
+
 public class ListaOrdenada<E extends Comparable<E>> implements IListaOrdenada<E> {
 
        private ArrayList<E> lista = new ArrayList<E>();
