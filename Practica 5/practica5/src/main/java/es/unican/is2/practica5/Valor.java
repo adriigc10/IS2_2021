@@ -2,6 +2,10 @@ package es.unican.is2.practica5;
 
 // WMC = 6
 // CCOGtotal = 0
+// CBO = 2 (Clases CuentaValores, Cliente)
+// DIT = 0
+// NOC = 0
+
 public class Valor {
 	
 	private String entidad;	

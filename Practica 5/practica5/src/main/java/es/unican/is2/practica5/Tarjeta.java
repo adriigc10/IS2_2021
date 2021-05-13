@@ -2,9 +2,13 @@ package es.unican.is2.practica5;
 
 // WMC = 1
 //CCOGtotal = 0
+// CBO = 5 (Clases Credito, Debito)
+// DIT = 0
+// NOC = 2
+
 public abstract class Tarjeta {
 	protected String mNumero, mTitular;		
-	protected CuentaAhorro mCuentaAsociada;
+	protected CuentaAhorro mCuentaAsociada; // CBO += 1 (Clase CuentaAhorro)
 
 	public Tarjeta(String numero, String titular, CuentaAhorro c) { // CC += 1
 		mNumero = numero;
@@ -18,7 +22,7 @@ public abstract class Tarjeta {
 	 * @throws saldoInsuficienteException
 	 * @throws datoErroneoException
 	 */
-	public abstract void retirar(double x) throws saldoInsuficienteException, datoErroneoException;
+	public abstract void retirar(double x) throws saldoInsuficienteException, datoErroneoException; // CBO += 1 (Clase saldoInsuficienteException, datoErroneoException)
 
 	/**
 	 * Pago en establecimiento con la tarjeta

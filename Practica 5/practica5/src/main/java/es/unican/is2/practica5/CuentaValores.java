@@ -4,9 +4,13 @@ import java.util.List;
 
 // WMC = 3
 // CCOGtotal = 0
-public class CuentaValores extends Cuenta {
+// CBO = 3 (Clase Cliente)
+// DIT = 1
+// NOC = 0
 
-	private List<Valor> valores;
+public class CuentaValores extends Cuenta { // CBO += 1 (Clase Cuenta)
+
+	private List<Valor> valores; // CBO += 1 (Clase Valor)
 	
 	public CuentaValores(String numCuenta, List<Valor> valores) { // CC += 1
 		super(numCuenta);

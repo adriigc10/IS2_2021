@@ -4,6 +4,10 @@ import java.time.LocalDateTime;
 
 // WMC = 6
 // CCOGtotal = 0
+// CBO = 2 (Clases Credito, CuentaAhorro)
+// DIT = 0
+// NOC = 0
+
 public class Movimiento {
 	private String mConcepto;
 	private LocalDateTime mFecha;

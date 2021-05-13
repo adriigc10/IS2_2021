@@ -7,9 +7,13 @@ import java.util.List;
 
 // WMC = 18
 // CCOGtotal = 7
-public class CuentaAhorro extends Cuenta {
+// CBO = 8 (Clases Credito, Debito, Tarjeta, Cliente)
+// DIT = 1
+// NOC = 0
 
-	private List<Movimiento> mMovimientos;
+public class CuentaAhorro extends Cuenta { // CBO += 1 (Clase Cuenta)
+
+	private List<Movimiento> mMovimientos; // CBO += 1 (Clase Movimientos)
 	private LocalDate mFechaDeCaducidadTarjetaDebito;
 	private LocalDate mFechaDeCaducidadTarjetaCredito;
 	private double limiteDebito;
@@ -22,7 +26,7 @@ public class CuentaAhorro extends Cuenta {
 		limiteDebito = 1000;
 	}
 
-	public void ingresar(double x) throws datoErroneoException { // CC += 1
+	public void ingresar(double x) throws datoErroneoException { // CC += 1, CBO += 1 (Clase datoErroneoException)
 		if (x <= 0) // CC += 1, CCOG += 1
 			throw new datoErroneoException("No se puede ingresar una cantidad negativa");
 		Movimiento m = new Movimiento();
@@ -35,7 +39,7 @@ public class CuentaAhorro extends Cuenta {
 
 	
 	// CC += 3
-	public void retirar(double x) throws saldoInsuficienteException, datoErroneoException { // CC += 1
+	public void retirar(double x) throws saldoInsuficienteException, datoErroneoException { // CC += 1,  CBO += 1 (Clase saldoInsuficienteException)
 		if (x <= 0) // CC += 1, CCOG += 1
 			throw new datoErroneoException("No se puede retirar una cantidad negativa");
 		if (getSaldo() < x) // CC += 1, CCOG += 1

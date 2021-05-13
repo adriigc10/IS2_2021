@@ -7,14 +7,18 @@ import java.util.List;
 
 // WMC = 15
 // CCOGtotal = 7
-public class Credito extends Tarjeta {
+// CBO = 6
+// DIT = 1
+// NOC = 0
+
+public class Credito extends Tarjeta { // CBO += 1 (Clase Tarjeta)
 	
 	private double mCredito;
-	private List<Movimiento> mMovimientosMensuales;
+	private List<Movimiento> mMovimientosMensuales; // CBO += 1 (Clase Movimiento)
 	private List<Movimiento> mhistoricoMovimientos;
 	
 
-	public Credito(String numero, String titular, CuentaAhorro c, double credito) { // CC += 1
+	public Credito(String numero, String titular, CuentaAhorro c, double credito) { // CC += 1, CBO += 1 (Clase CuentaAhorro)
 		super(numero, titular, c);
 		mCredito = credito;
 		mMovimientosMensuales = new LinkedList<Movimiento>();
@@ -29,7 +33,7 @@ public class Credito extends Tarjeta {
 	 * @throws datoErroneoException
 	 */
 	@Override
-	public void retirar(double x) throws saldoInsuficienteException, datoErroneoException { // CC += 1
+	public void retirar(double x) throws saldoInsuficienteException, datoErroneoException { // CC += 1, CBO += 2 (Class saldoInsuficienteException, datoErroneoException)
 		if (x<0) // CC += 1, CCOG += 1
 			throw new datoErroneoException("No se puede retirar una cantidad negativa");
 		
@@ -103,7 +107,7 @@ public class Credito extends Tarjeta {
 		return mMovimientosMensuales;
 	}
 	
-	public Cuenta getCuentaAsociada() { // CC += 1
+	public Cuenta getCuentaAsociada() { // CC += 1, CBO += 1 (Clase Cuenta)
 		return mCuentaAsociada;
 	}
 	

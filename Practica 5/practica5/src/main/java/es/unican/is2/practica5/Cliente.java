@@ -5,6 +5,9 @@ import java.util.List;
 
 // WMC = 8
 // CCOGtotal = 10
+// CBO = 4
+// NOC = 0
+// DIT = 0
 
 public class Cliente {
 	
@@ -15,7 +18,7 @@ public class Cliente {
 	public String telefono;
 	public String dni;
 	
-    private List<Cuenta> Cuentas = new LinkedList<Cuenta>();
+    private List<Cuenta> Cuentas = new LinkedList<Cuenta>(); //CBO += 1 (Clase Cuenta)
     
  	public Cliente(String titular, String calle, String zip, String localidad, 
  			String telefono, String dni) { // CC += 1
@@ -36,10 +39,10 @@ public class Cliente {
 	public double getSaldoTotal() { // CC += 1
 		double total = 0.0;
 		for (Cuenta c: Cuentas) {  // CC += 1, CCOG += 1
-			if (c instanceof CuentaAhorro) { // CC += 1, CCOG += 2
-				total += ((CuentaAhorro) c).getSaldo();
-			} else if (c instanceof CuentaValores)  { // CC += 1, CCOG += 3
-				for (Valor v: ((CuentaValores) c).getValores()) { // CC += 1, CCOG += 4
+			if (c instanceof CuentaAhorro) { // CC += 1, CCOG += 2 
+				total += ((CuentaAhorro) c).getSaldo(); //CBO += 1 (Clase CuentaAhorro)
+			} else if (c instanceof CuentaValores)  { // CC += 1, CCOG += 3,
+				for (Valor v: ((CuentaValores) c).getValores()) { // CC += 1, CCOG += 4, CBO += 2 (Clases Valor y CuentaValores)
 					total += v.getCotizacionActual()*v.getNumValores();
 				}
 			}
