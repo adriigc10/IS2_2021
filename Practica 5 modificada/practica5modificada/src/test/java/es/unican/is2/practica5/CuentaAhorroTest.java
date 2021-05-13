@@ -19,11 +19,11 @@ public class CuentaAhorroTest {
 	@BeforeClass
 	public static void inicializarMovimientos() {
 		m1 = new Movimiento();
-		m1.setI(100);
+		m1.setImporte(100);
 		m2 = new Movimiento();
-		m2.setI(200);
+		m2.setImporte(200);
 		m3 = new Movimiento();
-		m3.setI(1500);
+		m3.setImporte(1500);
 	}
 
 	@Before
@@ -69,7 +69,7 @@ public class CuentaAhorroTest {
 			sut.retirar(50);
 			assertTrue(sut.getSaldo()==50);
 			assertTrue(sut.getMovimientos().size()==2);
-			assertTrue(sut.getMovimientos().get(1).getC().equals("Retirada de efectivo"));
+			assertTrue(sut.getMovimientos().get(1).getConcepto().equals("Retirada de efectivo"));
 		} catch (datoErroneoException e) {
 			fail("No debería lanzar DatoErroneoException");
 		} catch (saldoInsuficienteException e) {
@@ -103,7 +103,7 @@ public class CuentaAhorroTest {
 			sut.ingresar(0.01);
 			assertTrue(sut.getSaldo()==0.01);
 			assertTrue(sut.getMovimientos().size()==1);
-			assertTrue(sut.getMovimientos().get(0).getC().equals("Ingreso en efectivo"));
+			assertTrue(sut.getMovimientos().get(0).getConcepto().equals("Ingreso en efectivo"));
 			
 			sut.ingresar(100);
 			assertTrue(sut.getSaldo()==100.01);

@@ -7,26 +7,26 @@ public class Cliente {
 	
 	public String nombre;
 	public String calle;
-	public String zip;
+	public String codigoPostal;
 	public String localidad;
 	public String telefono;
 	public String dni;
 	
     private List<Cuenta> Cuentas = new LinkedList<Cuenta>();
 
- 	public Cliente(String titular, String calle, String zip, String localidad, 
+ 	public Cliente(String titular, String calle, String codigoPostal, String localidad, 
  			String telefono, String dni) {  
 		this.nombre = titular;
 		this.calle = calle;
-		this.zip = zip;
+		this.codigoPostal = codigoPostal;
 		this.localidad = localidad;
 		this.telefono = telefono;
 		this.dni = dni;
 	}
 	
-	public void cambiaDireccion(String calle, String zip, String localidad) {
+	public void cambiaDireccion(String calle, String codigoPostal, String localidad) {
 		this.calle = calle;
-		this.zip = zip;
+		this.codigoPostal = codigoPostal;
 		this.localidad = localidad;
 	}
 	

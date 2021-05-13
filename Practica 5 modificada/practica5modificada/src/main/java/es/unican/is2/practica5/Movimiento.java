@@ -3,31 +3,31 @@ package es.unican.is2.practica5;
 import java.time.LocalDateTime;
 
 public class Movimiento {
-	private String mConcepto;
-	private LocalDateTime mFecha;
-	private double mImporte;
+	private String concepto;
+	private LocalDateTime fecha;
+	private double importe;
 
-	public double getI() {
-		return mImporte;
+	public double getImporte() {
+		return importe;
 	}
 
-	public String getC() {
-		return mConcepto;
+	public String getConcepto() {
+		return concepto;
 	}
 
-	public void setC(String newMConcepto) {
-		mConcepto = newMConcepto;
+	public void setConcepto(String newConcepto) {
+		concepto = newConcepto;
 	}
 
-	public LocalDateTime getF() {
-		return mFecha;
+	public LocalDateTime getFecha() {
+		return fecha;
 	}
 
-	public void setF(LocalDateTime newMFecha) {
-		mFecha = newMFecha;
+	public void setFecha(LocalDateTime newFecha) {
+		fecha = newFecha;
 	}
 
-	public void setI(double newMImporte) {
-		mImporte = newMImporte;
+	public void setImporte(double newImporte) {
+		importe = newImporte;
 	}
 }

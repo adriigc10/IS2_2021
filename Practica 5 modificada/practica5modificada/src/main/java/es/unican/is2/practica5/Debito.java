@@ -12,36 +12,36 @@ public class Debito extends Tarjeta {
 	
 	
 	@Override
-	public void retirar(double x) throws saldoInsuficienteException, datoErroneoException {
-		if (saldoDiarioDisponible<x) {
+	public void retirar(double importeRetirar) throws saldoInsuficienteException, datoErroneoException {
+		if (saldoDiarioDisponible<importeRetirar) {
 			throw new saldoInsuficienteException("Saldo insuficiente");
 		}
-		this.mCuentaAsociada.retirar("Retirada en cajero automático", x);
-		saldoDiarioDisponible-=x;
+		this.cuentaAsociada.retirar("Retirada en cajero automático", importeRetirar);
+		saldoDiarioDisponible-=importeRetirar;
 	}
 	
 	@Override
-	public void pagoEnEstablecimiento(String datos, double x) throws saldoInsuficienteException, datoErroneoException {
-		if (saldoDiarioDisponible<x) {
+	public void pagoEnEstablecimiento(String datos, double importeAPagar) throws saldoInsuficienteException, datoErroneoException {
+		if (saldoDiarioDisponible<importeAPagar) {
 			throw new saldoInsuficienteException("Saldo insuficiente");
 		}
-		this.mCuentaAsociada.retirar("Compra en : " + datos, x);
-		saldoDiarioDisponible-=x;
+		this.cuentaAsociada.retirar("Compra en : " + datos, importeAPagar);
+		saldoDiarioDisponible-=importeAPagar;
 	}
 	
 	public LocalDate getCaducidadDebito() {
-		return this.mCuentaAsociada.getCaducidadDebito();
+		return this.cuentaAsociada.getCaducidadDebito();
 	}
 	
 	/**
 	 * Método invocado automáticamente a las 00:00 de cada día
 	 */
 	public void restableceSaldo() {
-		saldoDiarioDisponible = mCuentaAsociada.getLimiteDebito();
+		saldoDiarioDisponible = cuentaAsociada.getLimiteDebito();
 	}
 	
 	public CuentaAhorro getCuentaAsociada() {
-		return mCuentaAsociada;
+		return cuentaAsociada;
 	}
 
 }
