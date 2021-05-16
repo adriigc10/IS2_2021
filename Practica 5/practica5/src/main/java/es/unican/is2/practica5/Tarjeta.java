@@ -22,7 +22,7 @@ public abstract class Tarjeta {
 	 * @throws saldoInsuficienteException
 	 * @throws datoErroneoException
 	 */
-	public abstract void retirar(double x) throws saldoInsuficienteException, datoErroneoException; // CBO += 1 (Clase saldoInsuficienteException, datoErroneoException)
+	public abstract void retirar(double x) throws saldoInsuficienteException, datoErroneoException; // CBO += 2 (Clase saldoInsuficienteException, datoErroneoException)
 
 	/**
 	 * Pago en establecimiento con la tarjeta

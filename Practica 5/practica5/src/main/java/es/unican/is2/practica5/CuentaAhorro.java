@@ -8,8 +8,8 @@ import java.util.List;
 // WMC = 18
 // CCOGtotal = 7
 // CBO = 8 (Clases Credito, Debito, Tarjeta, Cliente)
-// DIT = 1
-// NOC = 0
+//DIT = 1
+//NOC = 0
 
 public class CuentaAhorro extends Cuenta { // CBO += 1 (Clase Cuenta)
 

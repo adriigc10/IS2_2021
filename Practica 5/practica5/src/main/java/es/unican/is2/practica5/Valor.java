@@ -38,6 +38,4 @@ public class Valor {
 	public String getEntidad() { // CC += 1
 		return entidad;
 	}
-
-
 }

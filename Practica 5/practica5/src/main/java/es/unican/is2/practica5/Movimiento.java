@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 // DIT = 0
 // NOC = 0
 
-public class Movimiento {
+public class Movimiento { 
 	private String mConcepto;
 	private LocalDateTime mFecha;
 	private double mImporte;

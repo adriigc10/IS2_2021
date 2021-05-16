@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
-// WMC = 15
+// WMC = 16
 // CCOGtotal = 7
 // CBO = 6
 // DIT = 1
