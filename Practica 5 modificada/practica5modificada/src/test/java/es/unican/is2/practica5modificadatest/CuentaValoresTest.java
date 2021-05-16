@@ -1,4 +1,4 @@
-package es.unican.is2.practica5;
+package es.unican.is2.practica5modificadatest;
 
 import static org.junit.Assert.assertTrue;
 
@@ -10,8 +10,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import es.unican.is2.practica5.CuentaValores;
-import es.unican.is2.practica5.Valor;
+import es.unican.is2.practica5modificada.CuentaValores;
+import es.unican.is2.practica5modificada.Valor;
 
 public class CuentaValoresTest {
 	private CuentaValores sut;
