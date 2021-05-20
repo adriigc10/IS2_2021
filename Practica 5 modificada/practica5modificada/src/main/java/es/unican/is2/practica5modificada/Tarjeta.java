@@ -9,11 +9,12 @@ import java.time.LocalDate;
 // NOC = 2
 
 public abstract class Tarjeta {
-	protected String numero, titular;		
+	protected String numero;
+	protected String titular;		
 	protected CuentaAhorro cuentaAsociada; // CBO += 1 (Clase CuentaAhorro)
 	protected LocalDate fechaCaducidadTarjeta;
 
-	public Tarjeta(String numero, String titular, CuentaAhorro c, LocalDate fechaCaducidadTarjeta) { // CC += 1
+	protected Tarjeta(String numero, String titular, CuentaAhorro c, LocalDate fechaCaducidadTarjeta) { // CC += 1
 		this.numero = numero;
 		this.titular = titular;
 		this.fechaCaducidadTarjeta = fechaCaducidadTarjeta;

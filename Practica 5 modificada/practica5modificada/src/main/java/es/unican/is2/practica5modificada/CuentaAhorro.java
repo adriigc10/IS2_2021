@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 // WMC = 13
 // CCOGtotal = 5
-// CBO = 4
 // CBO = 7 (Clases Credito, Debito, Tarjeta)
 // DIT = 1
 // NOC = 0
@@ -43,7 +42,7 @@ public class CuentaAhorro extends Cuenta { // CBO += 1 (Clase Cuenta)
 	public double getSaldo() { // CC += 1
 		double gasto = 0.0;
 		for (int i = 0; i < this.movimientos.size(); i++) { // CC += 1, CCOG += 1
-			Movimiento m = (Movimiento) movimientos.get(i);
+			Movimiento m = movimientos.get(i);
 			gasto += m.getImporte();
 		}
 		return gasto;

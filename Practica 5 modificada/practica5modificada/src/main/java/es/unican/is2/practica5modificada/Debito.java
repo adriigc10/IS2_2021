@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class Debito extends Tarjeta { // CBO += 1 (Clase Tarjeta)
 	
 	private double saldoDiarioDisponible;
-	private final double limiteDebito = 1000;
+	protected static final double LIMITEDEBITO = 1000;
 	
 	
 	public Debito(String numero, String titular, CuentaAhorro c, LocalDate date) { // CC += 1, CBO += 1 (Clase CuentaAhorro)

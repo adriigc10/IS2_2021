@@ -10,12 +10,12 @@ import java.util.List;
 // DIT = 0
 public class Cliente {
 	
-	public String nombre;
-	public String telefono;
-	public String dni;
-	public Direccion direccion; //CBO += 1 (Clase Direccion)
+	protected String nombre;
+	protected String telefono;
+	protected String dni;
+	protected Direccion direccion; //CBO += 1 (Clase Direccion)
 	
-    private List<Cuenta> Cuentas = new LinkedList<Cuenta>(); //CBO += 1 (Clase Cuenta)
+    private List<Cuenta> cuentas = new LinkedList<Cuenta>(); //CBO += 1 (Clase Cuenta)
 
  	public Cliente(String titular, String calle, String codigoPostal, String localidad,
  			String telefono, String dni) {  // CC += 1
@@ -31,14 +31,14 @@ public class Cliente {
 	
 	public double getSaldoTotal() { // CC += 1
 		double total = 0.0;
-		for (Cuenta c: Cuentas) {   // CC += 1, CCOG += 1
+		for (Cuenta c: cuentas) {   // CC += 1, CCOG += 1
 			total +=  c.getSaldo();
 		}
 		return total;
 	}
 	
 	public void anhadeCuenta(Cuenta c) { // CC += 1
-		Cuentas.add(c);
+		cuentas.add(c);
 	}
 	
 }

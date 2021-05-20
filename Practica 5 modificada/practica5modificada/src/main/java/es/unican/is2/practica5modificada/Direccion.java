@@ -8,9 +8,9 @@ package es.unican.is2.practica5modificada;
 
 public class Direccion {
 
-	public String calle;
-	public String codigoPostal;
-	public String localidad;
+	protected String calle;
+	protected String codigoPostal;
+	protected String localidad;
 
 	public Direccion(String calle, String codigoPostal, String localidad) { // CC += 1
 		this.calle = calle;

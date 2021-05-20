@@ -10,7 +10,7 @@ public abstract class Cuenta {
 	
 	private String numCuenta;
 	
-	public Cuenta(String numCuenta) { // CC += 1
+	protected Cuenta(String numCuenta) { // CC += 1
 		this.numCuenta = numCuenta;
 	}
 	

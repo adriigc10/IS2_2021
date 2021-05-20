@@ -12,13 +12,13 @@ import java.util.List;
 // NOC = 0
 public class Credito extends Tarjeta { // CBO += 1 (Clase Tarjeta)
 	
-	private double credito;
+	private double creditoDisponible;
 	private List<Movimiento> movimientosMensuales; // CBO += 1 (Clase Movimiento)
 	private List<Movimiento> historicoMovimientos;
 	
 	public Credito(String numero, String titular, CuentaAhorro c, double credito, LocalDate date) {  // CC += 1, CBO += 1 (Clase CuentaAhorro)
 		super(numero, titular, c, date);
-		this.credito = credito;
+		this.creditoDisponible = credito;
 		movimientosMensuales = new LinkedList<Movimiento>();
 		historicoMovimientos = new LinkedList<Movimiento>();
 	}
@@ -40,7 +40,7 @@ public class Credito extends Tarjeta { // CBO += 1 (Clase Tarjeta)
 		importeRetirar += importeRetirar * 0.05; // Añadimos una comisión de un 5%
 		movimiento.setImporte(-importeRetirar);
 		
-		if (getGastosAcumulados()+importeRetirar > credito) // CC += 1, CCOG += 1
+		if (getGastosAcumulados()+importeRetirar > creditoDisponible) // CC += 1, CCOG += 1
 			throw new SaldoInsuficienteException("Crédito insuficiente");
 		else {
 			movimientosMensuales.add(movimiento);
@@ -51,7 +51,7 @@ public class Credito extends Tarjeta { // CBO += 1 (Clase Tarjeta)
 	public void pagoEnEstablecimiento(String datos, double importeAPagar) throws SaldoInsuficienteException, DatoErroneoException {  // CC += 1
 		comprobarImporteNegativo(importeAPagar);
 		
-		if (getGastosAcumulados() + importeAPagar > credito) // CC += 1, CCOG += 1
+		if (getGastosAcumulados() + importeAPagar > creditoDisponible) // CC += 1, CCOG += 1
 			throw new SaldoInsuficienteException("Saldo insuficiente");
 		
 		Movimiento movimiento = new Movimiento();
@@ -108,7 +108,7 @@ public class Credito extends Tarjeta { // CBO += 1 (Clase Tarjeta)
 	private double calcularGastoAcumulado() { // CC += 1
 		double gastosAcumulado = 0.0; 
 		for (int i = 0; i < this.movimientosMensuales.size(); i++) { // CC += 1, CCOG += 1
-			Movimiento m = (Movimiento) movimientosMensuales.get(i);
+			Movimiento m = movimientosMensuales.get(i);
 			gastosAcumulado += m.getImporte();
 		}
 		return gastosAcumulado;
